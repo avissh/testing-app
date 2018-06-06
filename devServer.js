@@ -24,8 +24,8 @@ app.use(require('webpack-hot-middleware')(compiler))
 
 app.post('/send_mail',(req,res)=>{
   const msg = {
-    to: 'gkverma1094@gmail.com',//Please provide ur email-id here :}
-    from: req.body.email,
+    to: req.body.email,
+    from: 'gkverma1094@gmail.com',//Please provide ur email-id here :}
     subject: req.body.subject,
     text: req.body.message,
     html: `<strong>${req.body.message}</strong>`,
