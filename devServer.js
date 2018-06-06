@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 
 var compiler = webpack(config)
 
+app.set('port',(process.env.PORT || 5000));
 
 app.use(
   require('webpack-dev-middleware')(compiler, {
@@ -38,11 +39,11 @@ app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'))
 })
 
-app.listen(3030, 'localhost', function(err) {
+app.listen(app.get('port'), function(err) {
   if (err) {
     console.log(err)
     return
   }
 
-  console.log('Listening at http://localhost:3030')
+  console.log('Listening at http://localhost:5000')
 })
