@@ -6,7 +6,7 @@ const config = require('./webpack.config.dev')
 const sgMail = require('@sendgrid/mail');
 
 var app = express();
-const apiKey = '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';//API KEY VALID for sometime only
+const apiKey = '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';//API KEY VALID for sometime only
 sgMail.setApiKey(apiKey);
 app.use(bodyParser.json());
 
@@ -33,6 +33,7 @@ app.post('/send_mail',(req,res)=>{
   };
   sgMail.send(msg);
   res.send('sending mail to admin');
+  console.log("mail send");
 })
 
 app.get('*', function(req, res) {
